@@ -20,7 +20,7 @@ To check for what we have done. Type in the command:
 
 Every time before you edit the report, please type in the command:
 
-```git pull```
+```git pull origin master```
 
 This command will automatically update the repository to the latest version.
 
