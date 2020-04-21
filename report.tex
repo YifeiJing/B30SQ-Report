@@ -85,7 +85,7 @@ For the requirements that the transmitter and the receiver should be $0dBm$,
 is now re-arranged to: $G_t(dB) + G_r(dB) = Link \, Budget$. Assuming each gain stage is $20dB$, then one stage of amplifier at either transmitter or receiver should be enough.
 
 \chapter{Patch antenna design}
-The goal of this section is to design and optimize a quarter-wave matched micro-strip patch antenna fabricated on a FR4 substrate (ER = 4.3, tan(d) = 0.019, thickness = 1.6mm) at about 2.45 GHz.
+The goal of this section is to design and optimize a quarter-wave matched micro-strip patch antenna fabricated on a FR4 substrate (Er = 4.3, tan(d) = 0.019, thickness = 1.6mm) at about 2.45 GHz.
 
 \section{Concepts}
 The principle of design a patched antenna is to achieve a $\lambda / 2$ resonator, as it is illustrated in \hyperref[fig:patch_principle]{Figure \ref*{fig:patch_principle}} that the reflection coefficient is 1 at the open circuit side, and it is approximately 1 on the other side with a thin linked signal feeder.
@@ -116,7 +116,7 @@ The top view of the patch antenna is shown in \hyperref[fig:top_view]{Figure \re
 
 The reason to add the quarter wave transformer is that the input impedance of the patch is very high. The impedance can be represented as \cite{input_impedance}:
 \begin{equation}
-    R_{IN} \approx 90 (\frac{\epsilon_r^2}{\epsilon_r - 1})(\frac{L}{W})^2
+    R_{IN} \approx 90 \bigg(\frac{\epsilon_r^2}{\epsilon_r - 1}\bigg) \bigg(\frac{L}{W} \bigg)^2
     \label{equ:patch_resistance}
 \end{equation}
 
@@ -129,7 +129,10 @@ After calculating the value of $R_{IN}$, the impedance of the quarter wave trans
 
 \vspace{0.2cm}
 
-The characteristic impedance of a transmission line obeys a complicated function of the line width $W$, the substrate height $h$, and the effective dielectric constant $\epsilon_{eff}$. For a given characteristic impedance $Z_0$, the required width of the transmission line is given by:
+The characteristic impedance of a transmission line obeys a complicated function of the line width $W$, the substrate height $h$, and the effective dielectric constant $\epsilon_{eff}$ \footnote{The equation of $\epsilon_{eff}$:\begin{equation}
+    \epsilon_{eff} = \frac{\epsilon_r + 1}{2} + \frac{\epsilon_r - 1}{2} \bigg(\frac{\ln \frac{\pi}{2} + \frac{1}{\epsilon_r} \ln \frac{4}{\pi}}{\ln \frac{8h}{W}}\bigg)
+    \label{equ:epsilon_eff}
+\end{equation}}. For a given characteristic impedance $Z_0$, the required width of the transmission line is given by:
 
 \begin{equation}
     W = \begin{cases}
@@ -156,9 +159,19 @@ and
 
 \section{Pre-lab tasks}
 \begin{itemize}
-    \item[1.] Calculate the required length $L$, width $W$, and the input resistance $R_{in}$ of a $2.5 \, GHz$ square patch antenna fabricated on FR4.
-    \item[2.] Calculate the required characteristic impedance of the quarter wave transformer $Z_{0QW}$, its required width, its effective dielectric constant, its guided wavelength, and finally, its required length.
-    \item[3.] Calculate the required width and the guided wavelength of the $50 \Omega$ feed line.
+    \item[1.] Calculate the required length $L$, width $W$, and the input resistance $R_{in}$ of a $2.5 \, GHz$ square patch antenna fabricated on FR4. \\
+    From \hyperref[equ:patch_L]{Equation \ref*{equ:patch_L}}, L can be calculated from: $$L = \frac{0.49c}{\sqrt{\epsilon_r}f_0} = \frac{0.49 \cdot 3 \cdot 10^8}{\sqrt{4.3} \cdot 2.45 \cdot 10^9} = 2.89 \, cm,$$ where $c$ is the velocity of light, $f_0$ is the frequency: $2.45 GHz$.
+    As it is a square patch, $W = L = 2.98 \, cm$. $R_{IN}$ can be calculated from \hyperref[equ:patch_resistance]{Equation \ref*{equ:patch_resistance}}: $$R_{IN} \approx 90 \bigg(\frac{4.3^2}{4.3 - 1}\bigg) = 504 \Omega$$
+    \item[2.] Calculate the required characteristic impedance of the quarter wave transformer $Z_{0QW}$, its required width, its effective dielectric constant, its guided wavelength, and finally, its required length. \\
+    From \hyperref[equ:z0qw]{Equation \ref*{equ:z0qw}}, $Z_{0QW} = \sqrt{50 \cdot 504} = 159 \Omega$. To calculate the width, use the first case of \hyperref[equ:w_calc]{Equation \ref*{equ:w_calc}}: $$A = \frac{159}{60} \sqrt{\frac{4.3 + 1}{2}} + \frac{4.3 - 1}{4.3 + 1} \bigg(0.23 + \frac{0.11}{4.3}\bigg) = 4.47,$$ $$W = \frac{8 \cdot 1.6 * e^{4.47}}{e^{2 \cdot 4.47 - 2}} = 1.08 mm$$
+    The effective dielectric $\epsilon_{eff}$ can be calculated from \hyperref[equ:epsilon_eff]{Equation \ref*{equ:epsilon_eff}}: $$\epsilon_{eff} = \frac{4.3 + 1}{2} + \frac{4.3 - 1}{2} \bigg(\frac{\ln \frac{\pi}{2} + \frac{1}{4.3} \ln \frac{4}{\pi}}{\ln \frac{8 \cdot 1.6}{1.08}}\bigg) = 2.99$$
+    To calculate the guided wavelength, first compute the phase velocity: $$v_{\phi} = \frac{1}{\sqrt{\mu\epsilon}} = \frac{c}{\sqrt{\mu_r \epsilon_r}} = \frac{3 \cdot 10^8}{\sqrt{2.99}} = 1.73 \cdot 10^8 \enspace m/s$$
+    Then, $$\lambda_g = \frac{v_\phi}{f} = \frac{1.73 \cdot 10^8}{2.45 \cdot 10^9} = 0.12 \enspace m$$
+    Therefore, the quarter-wavelength transformer could have the length: $L = \frac{\lambda_g}{4} = 3 \enspace cm$.
+    \item[3.] Calculate the required width and the guided wavelength of the $50 \Omega$ feed line. \\
+    To calculate the width of the feed line, use the second case of \hyperref[equ:w_calc]{Equation \ref*{equ:w_calc}}:
+    $$B = \frac{377\pi}{2 \cdot 50 \cdot \sqrt{4.3}} = 5.71,$$ $$W = \frac{2 \cdot 1.6}{\pi}[5.71 - 1 - \ln(2 \cdot 5.71 - 1) + \frac{4.3 - 1}{2 \cdot 4.3} \{\ln(5.71 - 1) + 0.39 - \frac{0.11}{4.3}\}] = 3.11$$
+    The guided wavelength is the same as that of task 2. $\lambda_g = 0.12 \enspace m$.
 \end{itemize}
 
 \chapter{Amplifier design}
