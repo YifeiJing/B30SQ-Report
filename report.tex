@@ -6,6 +6,7 @@
 \usepackage{xcolor}
 \usepackage{tabulary}
 \usepackage[top=3cm, bottom=3cm, left=3cm, right=2cm]{geometry}
+\usepackage{amsmath}
 \hypersetup{
     pdftoolbar=true,        % show Acrobat’s toolbar?
     pdfmenubar=true,        % show Acrobat’s menu?
@@ -118,9 +119,37 @@ The reason to add the quarter wave transformer is that the input impedance of th
 \end{equation}
 
 After calculating the value of $R_{IN}$, the impedance of the quarter wave transformer can be calculated from:
+
 \begin{equation}
     Z_{0QW} = \sqrt{50R_{IN}}
 \end{equation}
+
+\vspace{0.2cm}
+
+The characteristic impedance of a transmission line obeys a complicated function of the line width $W$, the substrate height $h$, and the effective dielectric constant $\epsilon_{eff}$. For a given characteristic impedance $Z_0$, the required width of the transmission line is given by:
+
+\begin{equation}
+    W = \begin{cases}
+        \frac{8h e^A}{e^{2A} - 2} &\text{valid when } W < 2h \\
+        \frac{2h}{\pi}[B - 1 - \ln(2B - 1) + \frac{\epsilon_r - 1}{2 \epsilon_r} \{\ln(B - 1) + 0.39 - \frac{0.61}{\epsilon_r}\}] &\text{valid when } W > 2h
+    \end{cases}
+\end{equation}
+
+\vspace{0.2cm}
+
+where
+
+\begin{equation}
+    A = \frac{Z_0}{60} \sqrt{\frac{\epsilon_r + 1}{2}} + \frac{\epsilon_r - 1}{\epsilon_r + 1}\bigg(0.23 + \frac{0.11}{\epsilon_r}\bigg)
+\end{equation}
+and
+
+\begin{equation}
+    B = \frac{377 \pi}{2 Z_0 \sqrt{\epsilon_r}}
+\end{equation}
+
+\section{Pre-lab tasks}
+
 
 \chapter{Amplifier design}
 \chapter{Transmitter's modulator}
