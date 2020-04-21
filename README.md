@@ -27,3 +27,9 @@ This command will automatically update the repository to the latest version.
 Each time after you edit the report, please update to the server by typing in the command after you have committed the changes:
 
 ```git push origin master```
+
+## Format of labels
+
+The labels should defined under such constrains:
+1. The set which exists in. eg. figure, table, equation. In the form: fig:__, table:_, .*etc*
+2. The specifier should use the underline character as space. eg. maxwells_equations
