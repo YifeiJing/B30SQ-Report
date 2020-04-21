@@ -102,6 +102,7 @@ physical length. Because of this, the required length of the patch, L, is given 
 the following equation:
 \begin{equation}
     L = \frac{0.49 \lambda_0}{\sqrt{\epsilon_r}}
+    \label{equ:patch_L}
 \end{equation}
 where $\epsilon_r$ is the dielectric constant of the substrate, and $\lambda_0$ is the wavelength in free space.
 
@@ -116,12 +117,14 @@ The top view of the patch antenna is shown in \hyperref[fig:top_view]{Figure \re
 The reason to add the quarter wave transformer is that the input impedance of the patch is very high. The impedance can be represented as \cite{input_impedance}:
 \begin{equation}
     R_{IN} \approx 90 (\frac{\epsilon_r^2}{\epsilon_r - 1})(\frac{L}{W})^2
+    \label{equ:patch_resistance}
 \end{equation}
 
 After calculating the value of $R_{IN}$, the impedance of the quarter wave transformer can be calculated from:
 
 \begin{equation}
     Z_{0QW} = \sqrt{50R_{IN}}
+    \label{equ:z0qw}
 \end{equation}
 
 \vspace{0.2cm}
@@ -133,6 +136,7 @@ The characteristic impedance of a transmission line obeys a complicated function
         \frac{8h e^A}{e^{2A} - 2} &\text{valid when } W < 2h \\
         \frac{2h}{\pi}[B - 1 - \ln(2B - 1) + \frac{\epsilon_r - 1}{2 \epsilon_r} \{\ln(B - 1) + 0.39 - \frac{0.61}{\epsilon_r}\}] &\text{valid when } W > 2h
     \end{cases}
+    \label{equ:w_calc}
 \end{equation}
 
 \vspace{0.2cm}
@@ -141,15 +145,21 @@ where
 
 \begin{equation}
     A = \frac{Z_0}{60} \sqrt{\frac{\epsilon_r + 1}{2}} + \frac{\epsilon_r - 1}{\epsilon_r + 1}\bigg(0.23 + \frac{0.11}{\epsilon_r}\bigg)
+    \label{equ:A}
 \end{equation}
 and
 
 \begin{equation}
     B = \frac{377 \pi}{2 Z_0 \sqrt{\epsilon_r}}
+    \label{equ:B}
 \end{equation}
 
 \section{Pre-lab tasks}
-
+\begin{itemize}
+    \item[1.] Calculate the required length $L$, width $W$, and the input resistance $R_{in}$ of a $2.5 \, GHz$ square patch antenna fabricated on FR4.
+    \item[2.] Calculate the required characteristic impedance of the quarter wave transformer $Z_{0QW}$, its required width, its effective dielectric constant, its guided wavelength, and finally, its required length.
+    \item[3.] Calculate the required width and the guided wavelength of the $50 \Omega$ feed line.
+\end{itemize}
 
 \chapter{Amplifier design}
 \chapter{Transmitter's modulator}
