@@ -170,11 +170,41 @@ and
     Therefore, the quarter-wavelength transformer could have the length: $L = \frac{\lambda_g}{4} = 3 \enspace cm$.
     \item[3.] Calculate the required width and the guided wavelength of the $50 \Omega$ feed line. \\
     To calculate the width of the feed line, use the second case of \hyperref[equ:w_calc]{Equation \ref*{equ:w_calc}}:
-    $$B = \frac{377\pi}{2 \cdot 50 \cdot \sqrt{4.3}} = 5.71,$$ $$W = \frac{2 \cdot 1.6}{\pi}[5.71 - 1 - \ln(2 \cdot 5.71 - 1) + \frac{4.3 - 1}{2 \cdot 4.3} \{\ln(5.71 - 1) + 0.39 - \frac{0.11}{4.3}\}] = 3.11$$
+    $$B = \frac{377\pi}{2 \cdot 50 \cdot \sqrt{4.3}} = 5.71,$$ $$W = \frac{2 \cdot 1.6}{\pi}[5.71 - 1 - \ln(2 \cdot 5.71 - 1) + \frac{4.3 - 1}{2 \cdot 4.3} \{\ln(5.71 - 1) + 0.39 - \frac{0.11}{4.3}\}] = 3.11 \enspace mm$$
     The guided wavelength is the same as that of task 2. $\lambda_g = 0.12 \enspace m$.
 \end{itemize}
 
+% \section{Design with ADS}
+% This sections introduces the procedures of the designation of the patch antenna using \emph{Keysight ADS}.
+% The goal is to design and optimize a quarter-wave matched micro-strip patch antenna fabricated on a FR4 substrate operating at about 2.5GHz. The impedance match of the antenna must be better than -20 dB at the design frequency.
+\section{Design and performance test}
+The design of the patch antenna is under the aid of \emph{Keysight ADS}. The parameters have been well tunned during the process of simulation in the laboratory. Thus, it was expected the produced antenna would behave the same as what had been shown on the simulation results.
+This section shows the produced antennas and their characteristics.
+
+\hyperref[fig:antenna_photo]{Figure \ref*{fig:antenna_photo}} shows the antenna finally made. The two antennas are both based on the same project schematic, thus the performance should be the same.
+
+\begin{figure}[ht]
+    \centerline{\includegraphics[scale=0.8]{antenna_photo}}
+    \caption{Capture of successfully made antenna}
+    \label{fig:antenna_photo}
+\end{figure}
+
+The performance of the antenna was tested through pocket VNA. Surprisingly, the performance of the two antennas are different, though they showed impedance match at around 2.45 GHz. \hyperref[fig:s11_antenna_1]{Figure \ref*{fig:s11_antenna_1}} and \hyperref[fig:s11_antenna_2]{Figure \ref*{fig:s11_antenna_2}} depict the $S_{11}$ property of the antennas. The match of impedance requires that the value of $S_{11}$ be smaller than -10 dB. Apparently, the two antennas have passed the this requirement. However, the second sample behaved much better.
+
+\begin{figure}[ht]
+    \centerline{\includegraphics[scale=0.35]{s11_antenna_1}}
+    \caption{$S_{11}$ of the first antenna}
+    \label{fig:s11_antenna_1}
+\end{figure}
+
+\begin{figure}[ht]
+    \centerline{\includegraphics[scale=0.35]{s11_antenna_2}}
+    \caption{$S_{11}$ of the second antenna}
+    \label{fig:s11_antenna_2}
+\end{figure}
+
 \chapter{Amplifier design}
+This section mainly describe the design of a low noise amplifier based on \textbf{BFU610F} transistor. 
 \chapter{Transmitter's modulator}
 \chapter{Entire system testing}
 
