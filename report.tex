@@ -204,9 +204,42 @@ The performance of the antenna was tested through pocket VNA. Surprisingly, the 
 \end{figure}
 
 \chapter{Amplifier design}
-This section mainly describe the design of a low noise amplifier based on \textbf{BFU610F} transistor. 
+% Justify the MOSFET devices choice and describe sub-sequent unavailability of the device.
+% You will be then showing only simulation results.
+This section mainly describe the design of a low noise amplifier based on \textbf{ATF-58143}. 
+
+The reason to choose this device is that:
+\begin{itemize}
+    \item[1.] It is available to buy: from \emph{farnell} or \emph{digikey}.
+    \item[2.] It has a model than can be used in \emph{ADS}.
+\end{itemize}
+
+% To fill
+The  DC-IV characterization schematic in ADS and results.
+
+Show S parameters simulations over a wide frequency range for a given bias point, include
+ADS schematic.
+
+Show stability analysis before and after stabilization.
+
+However, owing to some reasons, this device was no longer available at the time the laboratory was holding.
+The new solution is to use a the Bipolar - RF transistor \textbf{BFU610}.
+
 \chapter{Transmitter's modulator}
+% Describe how the output signal from the USB FTDI Chip is modulating the provided Voltage
+% Controlled Oscillator (VCO).
+The modulator has two parts: an op amp and an oscillator. The op amp was connected to the output port of FTDI chip, it amplified the TTL voltage level (0 - 3.3V) to a level which can make the oscillator working (0 - 10V). Followed by the op amp is the oscillator, which was controlled by two voltages: the Vcc port which was connected to the op amp, and the Vin which is connected to a voltage source to provide a voltage which let the oscillator operation in 2.45 GHz.
+Under such configuration, the output from the oscillator is: 2.45GHz waveform with Vpp 10V to represent a bit 1, 0 V to represent a bit 0.
+
 \chapter{Entire system testing}
+
+\section{Envelope Detector}
+
+\begin{figure}[ht]
+    \centerline{\includegraphics[scale=1]{typical_detector_circuit}}
+    \caption{Circuit of a typical detector}
+    \label{fig_typical_detector_circuit}
+\end{figure}
 
 \begin{thebibliography}{99}
 
