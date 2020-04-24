@@ -322,6 +322,7 @@ The modulator has two parts: an op amp and an oscillator. The op amp was connect
 Under such configuration, the output from the oscillator is: 2.45GHz waveform with Vpp 10V to represent a bit 1, 0 V to represent a bit 0.
 
 \chapter{Entire system testing}
+As it is depicted in \hyperref[fig:system_structure]{Figure \ref*{fig:system_structure}}, the signal start from the PC at the transmitter, amplified by the op amp, then modulated to be envelopes and sent by the antenna. This is the transmitter part of the wireless communication system. The microwave is received by the antenna at the receiver part, and it is amplified by the op amp to be detectable enough, filtered and rectified by the rectifier, finally received by the PC at the receiver part.
 
 \begin{figure}[ht]
     
@@ -347,6 +348,17 @@ Under such configuration, the output from the oscillator is: 2.45GHz waveform wi
     \label{fig:final_structure}
 \end{figure}
 
+The task of testing the entire system is to setup the whole system first, then input something at the transmitter PC, the receiver PC should be able to display what has been typed in the transmitter PC.
+
+Note that it is also possible to check the system availability from the raw bit waveform at the port of PCs of receiver and transmitter.
+
+\begin{figure}[ht]
+    \centerline{\includegraphics[scale=1]{raw_waveform_compare}}
+    \caption{Waveforms at the transmitter PC and the receiver PC}
+    \label{fig:raw_bit_waveform}
+\end{figure}
+
+\hyperref[fig:raw_bit_waveform]{Figure \ref*{fig:raw_bit_waveform}} shows the successful example acquired in the laboratory, where the upper one is the signal at the transmitter PC, and the lower one is the signal at the receiver PC.
 \section{Envelope Detector}
 
 \begin{figure}[ht]
