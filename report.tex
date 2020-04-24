@@ -310,8 +310,8 @@ Under such configuration, the output from the oscillator is: 2.45GHz waveform wi
     \node (FTDI) [cell] {Transmitter PC};
     \node (amp) [cell, right = 0.2cm of FTDI.east] {op amp};
     \node (modulator) [cell, right = 0.2cm of amp.east] {modulator};
-    \node (transmit) [cell, right = 0.2cm of modulator.east] {antenna};
-    \node (receive) [cell, right = 0.5cm of transmit.east] {antenna};
+    \node (transmit) [cell, right = 0.2 cm of modulator.east] {antenna};
+    \node (receive) [cell, right = 1.2 cm of transmit.south] {antenna};
     \node (amp2) [cell, right = 0.2cm of receive.east] {op amp};
     \node (detector) [cell, right = 0.2cm of amp2.east] {rectifier};
     \node (rec) [cell, right = 0.2cm of detector.east] {receiver PC};
