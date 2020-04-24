@@ -7,6 +7,10 @@
 \usepackage{tabulary}
 \usepackage[top=3cm, bottom=3cm, left=3cm, right=2cm]{geometry}
 \usepackage{amsmath}
+\usepackage{fancyhdr}
+\usepackage{tikz}
+\usetikzlibrary{positioning, shapes.geometric}
+% pdf configuration
 \hypersetup{
     pdftoolbar=true,        % show Acrobat’s toolbar?
     pdfmenubar=true,        % show Acrobat’s menu?
@@ -19,6 +23,12 @@
     citecolor=blue,
     urlcolor=brown
 }
+% header configuration
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\rightmark}
+\lhead{\leftmark}
+\cfoot{\thepage}
 
 \begin{document}
     \title{Report of building a wireless communication system}
@@ -27,6 +37,21 @@
     \date{April, 2020}
     \maketitle
     \setlength\parindent{0pt}
+
+    \cleardoublepage  
+    \phantomsection  
+    \addcontentsline{toc}{chapter}{Table of Contents}
+    \tableofcontents
+
+    \cleardoublepage  
+    \phantomsection  
+    \addcontentsline{toc}{chapter}{List of Figures}
+    \listoffigures
+
+    \cleardoublepage  
+    \phantomsection  
+    \addcontentsline{toc}{chapter}{List of Tables}
+    \listoftables
 
 \chapter{Introduction}
 The aim of this project is to build a wireless communication system based on what is learn in the course \emph{B30SQ}.
@@ -277,6 +302,18 @@ The modulator has two parts: an op amp and an oscillator. The op amp was connect
 Under such configuration, the output from the oscillator is: 2.45GHz waveform with Vpp 10V to represent a bit 1, 0 V to represent a bit 0.
 
 \chapter{Entire system testing}
+
+\begin{tikzpicture}
+    \tikzstyle{cell} = [rectangle, rounded corners, minimum width=1.8cm, minimum height=1cm,text centered, draw=black, fill=gray!30]
+    \node (FTDI) [cell] {FTDI};
+    \node (amp) [cell, right = 0.2cm of FTDI.east] {op amp};
+    \node (modulator) [cell, right = 0.2cm of amp.east] {modulator};
+    \node (transmit) [cell, right = 0.2cm of modulator.east] {antenna};
+    
+    \draw (FTDI) -- (amp);
+    \draw (amp) -- (modulator);
+    \draw (modulator) -- (transmit);
+\end{tikzpicture}
 
 \section{Envelope Detector}
 
