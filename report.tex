@@ -4,6 +4,7 @@
 \usepackage[all]{hypcap}
 \usepackage{times}
 \usepackage{xcolor}
+\usepackage{float}
 \usepackage{tabulary}
 \usepackage[top=3cm, bottom=3cm, left=3cm, right=2cm]{geometry}
 \usepackage{amsmath}
@@ -293,10 +294,29 @@ replace TermG with AC source and observe the $P_{in}$, $P_{out}$ relationship.
     \label{linearregion}
 \end{figure}
 \ref{inout} shows the relationship between $P_{in}$ and $P_{out}$. From the graph, it satisfies the property of a linear amplifier. \ref{linearregion} shows the 
-linear amplification region of the low noise amplifier.
+linear amplification region of the low noise amplifier. Once beyond the linear region, output signal will have a distortion.
+\chapter{Low Pass Filter}
+In the receiver side. High frequency carrier needs to be filtered out. A low pass filter is applied at the receiver side. The circuit of low pass filter is given in \ref{LPF}.
+\ref{LPFSimulationResult} shows the simulation results of the low pass filter. \ref{RealLPF} is the real low pass filter used in this wireless system. The difference between real
+circuit and designed circuit is the real circuit does not contain capacitor.
+\begin{figure}[H]
+    \centerline{\includegraphics[scale=0.5]{LPF_circuit.PNG}}
+    \caption{Low pass filter circuit}
+    \label{LPF}
+\end{figure}
+\begin{figure}[H]
+    \centerline{\includegraphics[scale=0.5]{LPF_SimulationResult.PNG}}
+    \caption{Low pass filter simulation result}
+    \label{LPFSimulationResult}
+\end{figure}
+\begin{figure}[H]
+    \centerline{\includegraphics{rectifier.png}}
+    \caption{Low pass filter(real circuit)}
+    \label{RealLPF}
+\end{figure}
 \chapter{Transmitter's modulator}
 % Describe how the output signal from t
-he USB FTDI Chip is modulating the provided Voltage
+The USB FTDI Chip is modulating the provided Voltage
 % Controlled Oscillator (VCO).
 The modulator has two parts: an op amp and an oscillator. The op amp was connected to the output port of FTDI chip, it amplified the TTL voltage level (0 - 3.3V) to a level which can make the oscillator working (0 - 10V). Followed by the op amp is the oscillator, which was controlled by two voltages: the Vcc port which was connected to the op amp, and the Vin which is connected to a voltage source to provide a voltage which let the oscillator operation in 2.45 GHz.
 Under such configuration, the output from the oscillator is: 2.45GHz waveform with Vpp 10V to represent a bit 1, 0 V to represent a bit 0.
