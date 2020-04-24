@@ -52,7 +52,7 @@
     \phantomsection  
     \addcontentsline{toc}{chapter}{List of Tables}
     \listoftables
-    
+
 \chapter{Introduction}
 The aim of this project is to build a wireless communication system based on what is learn in the course \emph{B30SQ}.
 The structure of a communication system is depicted in \hyperref[fig:system_structure]{Figure \ref*{fig:system_structure}}, which composes of a transmitter and a receiver between two computers.
@@ -261,6 +261,13 @@ Under such configuration, the output from the oscillator is: 2.45GHz waveform wi
 \begin{tikzpicture}
     \tikzstyle{cell} = [rectangle, rounded corners, minimum width=1.8cm, minimum height=1cm,text centered, draw=black, fill=gray!30]
     \node (FTDI) [cell] {FTDI};
+    \node (amp) [cell, right = 0.2cm of FTDI.east] {op amp};
+    \node (modulator) [cell, right = 0.2cm of amp.east] {modulator};
+    \node (transmit) [cell, right = 0.2cm of modulator.east] {antenna};
+    
+    \draw (FTDI) -- (amp);
+    \draw (amp) -- (modulator);
+    \draw (modulator) -- (transmit);
 \end{tikzpicture}
 
 \section{Envelope Detector}
