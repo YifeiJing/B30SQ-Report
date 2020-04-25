@@ -329,6 +329,14 @@ The USB FTDI Chip is modulating the provided Voltage
 The modulator has two parts: an op amp and an oscillator. The op amp was connected to the output port of FTDI chip, it amplified the TTL voltage level (0 - 3.3V) to a level which can make the oscillator working (0 - 10V). Followed by the op amp is the oscillator, which was controlled by two voltages: the Vcc port which was connected to the op amp, and the Vin which is connected to a voltage source to provide a voltage which let the oscillator operation in 2.45 GHz.
 Under such configuration, the output from the oscillator is: 2.45GHz waveform with Vpp 10V to represent a bit 1, 0 V to represent a bit 0.
 
+The device used is \textbf{ZX95-3000W+}, which is a wide band voltage controlled oscillator. The data sheet can be found at \href{https://www.minicircuits.com/pdfs/ZX95-3000W+.pdf}{MiniCircuit}.
+
+\begin{figure}[ht]
+    \centerline{\includegraphics[scale=1.5]{osc}}
+    \caption{ZX95-3000W+ oscillator}
+    \label{fig:osc}
+\end{figure}
+
 \chapter{Entire system testing}
 As it is depicted in \hyperref[fig:system_structure]{Figure \ref*{fig:system_structure}}, the signal start from the PC at the transmitter, amplified by the op amp, then modulated to be envelopes and sent by the antenna. This is the transmitter part of the wireless communication system. The microwave is received by the antenna at the receiver part, and it is amplified by the op amp to be detectable enough, filtered and rectified by the rectifier, finally received by the PC at the receiver part.
 
@@ -377,6 +385,7 @@ Note that it is also possible to check the system availability from the raw bit 
     J.D. Kraus , R.J. Marhafka.
     \textit{Antennas for All Applications, $3^{rd}$ ed.}
     Boston MA: McGraw Hill, 2002, p. 324.
+
 
 \end{thebibliography}
     
