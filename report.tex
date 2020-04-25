@@ -262,13 +262,13 @@ Here the simulation of \textbf{ATF-58143} will be given. The procedures of simul
     \caption{Basic structure of Low Noise Amplifier}
     \label{LNA}
 \end{figure}
-In \ref{LNA}, the capacitor, resistor and inductor separate DC and AC. Now the source and load is mismatch.
+In \hyperref[LNA]{Figure \ref*{LNA}}, the capacitor, resistor and inductor separate DC and AC. Now the source and load is mismatch.
 \begin{figure}
     \centerline{\includegraphics[scale=0.5]{FirstMatching.PNG}}
     \caption{Source Load Matching}
     \label{fm}
 \end{figure}
-\ref{fm} shows the circuit after matching. $S_{21}$ is higher than the circuit without matching.\\
+\hyperref[fm]{Figure \ref*{fm}} shows the circuit after matching. $S_{21}$ is higher than the circuit without matching.\\
 Junctions and gaps are needed since when printing the board, capacitors, inductors and resistors can not be printed on it. But the 
 space should be given for them. Using gaps to simulate the spaces for those components. Using junctions to simulate the intersections.
 \begin{figure}
@@ -281,7 +281,7 @@ space should be given for them. Using gaps to simulate the spaces for those comp
     \caption{$S_{21}$ value}
     \label{S21}
 \end{figure}
-\ref{junctions} shows the circuit after adding T-junctions and gaps. \ref{S21} shows the $S_{21}$ of this circuit. Output power test needs 
+\hyperref[junctions]{Figure \ref*{junctions}} shows the circuit after adding T-junctions and gaps. \hyperref[S21]{Figure \ref*{S21}} shows the $S_{21}$ of this circuit. Output power test needs 
 replace TermG with AC source and observe the $P_{in}$, $P_{out}$ relationship.
 \begin{figure}
     \centerline{\includegraphics[]{P_inP_out.PNG}}
@@ -293,27 +293,35 @@ replace TermG with AC source and observe the $P_{in}$, $P_{out}$ relationship.
     \caption{Linear region}
     \label{linearregion}
 \end{figure}
-\ref{inout} shows the relationship between $P_{in}$ and $P_{out}$. From the graph, it satisfies the property of a linear amplifier. \ref{linearregion} shows the 
+\hyperref[inout]{Figure \ref*{inout}} shows the relationship between $P_{in}$ and $P_{out}$. From the graph, it satisfies the property of a linear amplifier. \hyperref[linearregion]{Figure \ref*{linearregion}} shows the 
 linear amplification region of the low noise amplifier. Once beyond the linear region, output signal will have a distortion.
 \chapter{Low Pass Filter}
-In the receiver side. High frequency carrier needs to be filtered out. A low pass filter is applied at the receiver side. The circuit of low pass filter is given in \ref{LPF}.
-\ref{LPFSimulationResult} shows the simulation results of the low pass filter. \ref{RealLPF} is the real low pass filter used in this wireless system. The difference between real
+In the receiver side. High frequency carrier needs to be filtered out. A low pass filter is applied at the receiver side. The circuit of low pass filter is given in \hyperref[fig:typical_detector_circuit]{Figure \ref*{fig:typical_detector_circuit}}.
+\hyperref[LPFSimulationResult]{Figure \ref*{LPFSimulationResult}} shows the simulation results of the low pass filter. \hyperref[RealLPF]{Figure \ref*{RealLPF}} is the real low pass filter used in this wireless system. The difference between real
 circuit and designed circuit is the real circuit does not contain capacitor.
-\begin{figure}[H]
-    \centerline{\includegraphics[scale=0.5]{LPF_circuit.PNG}}
-    \caption{Low pass filter circuit}
-    \label{LPF}
+% \begin{figure}[H]
+%     \centerline{\includegraphics[scale=0.5]{LPF_circuit.PNG}}
+%     \caption{Low pass filter circuit}
+%     \label{LPF}
+% \end{figure}
+\begin{figure}[ht]
+    \centerline{\includegraphics[scale=1]{typical_detector_circuit}}
+    \caption{Circuit of a low pass filter}
+    \label{fig:typical_detector_circuit}
 \end{figure}
+
 \begin{figure}[H]
     \centerline{\includegraphics[scale=0.5]{LPF_SimulationResult.PNG}}
     \caption{Low pass filter simulation result}
     \label{LPFSimulationResult}
 \end{figure}
+
 \begin{figure}[H]
     \centerline{\includegraphics{rectifier.png}}
     \caption{Low pass filter(real circuit)}
     \label{RealLPF}
 \end{figure}
+
 \chapter{Transmitter's modulator}
 % Describe how the output signal from t
 The USB FTDI Chip is modulating the provided Voltage
@@ -359,13 +367,9 @@ Note that it is also possible to check the system availability from the raw bit 
 \end{figure}
 
 \hyperref[fig:raw_bit_waveform]{Figure \ref*{fig:raw_bit_waveform}} shows the successful example acquired in the laboratory, where the upper one is the signal at the transmitter PC, and the lower one is the signal at the receiver PC.
-\section{Envelope Detector}
+% \section{Envelope Detector}
 
-\begin{figure}[ht]
-    \centerline{\includegraphics[scale=1]{typical_detector_circuit}}
-    \caption{Circuit of a typical detector}
-    \label{fig_typical_detector_circuit}
-\end{figure}
+
 
 \begin{thebibliography}{99}
 
