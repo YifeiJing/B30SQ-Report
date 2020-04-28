@@ -8,6 +8,7 @@
 \usepackage{tabulary}
 \usepackage[top=3cm, bottom=3cm, left=3cm, right=2cm]{geometry}
 \usepackage{amsmath}
+\usepackage{subfigure}
 \usepackage{fancyhdr}
 \usepackage{tikz}
 \usetikzlibrary{positioning, shapes.geometric}
@@ -450,46 +451,83 @@ Note that it is also possible to check the system availability from the raw bit 
     \caption{Waveforms at the transmitter PC and the receiver PC}
     \label{fig:raw_bit_waveform}
 \end{figure}
-\begin{figure}
-    \centerline{\includegraphics[scale=0.1]{DC_PowerSupplyReceiver.PNG}}
-    \caption{DC power supply at transmitter side}
-    \label{fig:DCT}
+% \begin{figure}
+%     \centerline{\includegraphics[scale=0.1]{DC_PowerSupplyReceiver.PNG}}
+%     \caption{DC power supply at transmitter side}
+%     \label{fig:DCT}
+% \end{figure}
+% \begin{figure}
+%     \centerline{\includegraphics[scale=0.1]{OPAMP_Transmitter.PNG}}
+%     \caption{OPAMP at transmitter side}
+%     \label{fig:OPAMPT}
+% \end{figure}
+% \begin{figure}
+%     \centerline{\includegraphics[scale=0.2]{Oscillator.PNG}}
+%     \caption{Oscillator}
+%     \label{fig:Oscilaltor}
+% \end{figure}
+% \begin{figure}
+%     \centerline{\includegraphics[scale=0.1]{Antennas.PNG}}
+%     \caption{Transmitting antenna and receiving antenna}
+%     \label{fig:Antennas}
+% \end{figure}
+% \begin{figure}
+%     \centerline{\includegraphics[scale=0.2]{LNA.PNG}}
+%     \caption{Low noise amplifier}
+%     \label{fig:LNA}
+% \end{figure}
+% \begin{figure}
+%     \centerline{\includegraphics[scale=0.1]{OPAMPAtReceiver.PNG}}
+%     \caption{OPAMP at receiver side}
+%     \label{fig:OPAMPR}
+% \end{figure}
+% \begin{figure}
+%     \centerline{\includegraphics[scale=0.1]{DC_PowerSupplyReceiver.PNG}}
+%     \caption{DC power supply at receiver side}
+%     \label{fig:DCR}
+% \end{figure}
+
+\hyperref[fig:raw_bit_waveform]{Figure \ref*{fig:raw_bit_waveform}} shows the successful example acquired in the laboratory, where the upper one is the signal at the transmitter PC, and the lower one is the signal at the receiver PC.
+% \hyperref[fig:DCT]{Figure \ref*{fig:DCT}} to \hyperref[fig:DCR]{Figure \ref*{fig:DCR}} are the components in the wireless communication system. DC power supplies, OPAMPS, oscilators, antennas and low noise amplifier etc. 
+\hyperref[fig:DataR]{Figure \ref*{fig:DataR}} shows the received data. the data has been compared to the data at transmitter and no mistake happened.
+% \section{Envelope Detector}
+
+\begin{figure}[ht]
+    \centerline{\includegraphics[scale=0.1]{Antennas}}
+    \caption{Photo of antennas}
+    \label{fig:antennas}
 \end{figure}
-\begin{figure}
-    \centerline{\includegraphics[scale=0.1]{OPAMP_Transmitter.PNG}}
-    \caption{OPAMP at transmitter side}
-    \label{fig:OPAMPT}
+
+\begin{figure}[htp]
+    \begin{center}
+      \subfigure[The test of LPF under 1KHz]
+      {\label{fig:LPF_1KHz}\includegraphics[width=.49\linewidth]{LPFTest1KHz}}
+      \subfigure[The test of LPF under 2Hz]
+      {\label{fig:LPF_2Hz}\includegraphics[width=.49\linewidth]{LPFTest2Hz}} \\
+      \subfigure[The test of LPF under 5Hz]
+      {\label{fig:LPF_5Hz}\includegraphics[width=.5\linewidth]{LPFTest5Hz}}
+    \end{center}
+    \caption{The performance of test of LPF}
+    \label{fig:LPF_test}
 \end{figure}
-\begin{figure}
-    \centerline{\includegraphics[scale=0.2]{Oscillator.PNG}}
-    \caption{Oscillator}
-    \label{fig:Oscilaltor}
+
+\begin{figure}[htp]
+    \begin{center}
+        \subfigure[transmittor op-amp]
+        {\label{fig:trans_op_amp}\includegraphics[width=.48\linewidth]{OPAMP_Transmitter}}
+        \subfigure[receiver op-amp]
+        {\label{fig:recev_op_amp}\includegraphics[width=.48\linewidth]{OPAMPAtReceiver}}
+    \end{center}
+    \caption{Photos of op-amps}
+    \label{fig:opamps}
 \end{figure}
-\begin{figure}
-    \centerline{\includegraphics[scale=0.1]{Antennas.PNG}}
-    \caption{Transmitting antenna and receiving antenna}
-    \label{fig:Antennas}
-\end{figure}
-\begin{figure}
-    \centerline{\includegraphics[scale=0.2]{LNA.PNG}}
-    \caption{Low noise amplifier}
-    \label{fig:LNA}
-\end{figure}
-\begin{figure}
-    \centerline{\includegraphics[scale=0.1]{OPAMPAtReceiver.PNG}}
-    \caption{OPAMP at receiver side}
-    \label{fig:OPAMPR}
-\end{figure}
-\begin{figure}
-    \centerline{\includegraphics[scale=0.1]{DC_PowerSupplyReceiver.PNG}}
-    \caption{DC power supply at receiver side}
-    \label{fig:DCR}
-\end{figure}
+
 \begin{figure}
     \centerline{\includegraphics[scale=0.1]{ReceiverPC.png}}
     \caption{Received data}
     \label{fig:DataR}
 \end{figure}
+<<<<<<< HEAD
 \hyperref[fig:raw_bit_waveform]{Figure \ref*{fig:raw_bit_waveform}} shows the successful example acquired in the laboratory, where the upper one is the signal at the transmitter PC, and the lower one is the signal at the receiver PC.
 \hyperref[fig:DCT]{Figure \ref*{fig:DCT}} to \hyperref[fig:DCR]{Figure \ref*{fig:DCR}} are the components in the wireless communication system. DC power supplies, OPAMPS, oscilators, antennas and low noise amplifier etc. 
 \hyperref[fig:DataR]{Figure \ref*{fig:DataR}} shows the received data. the data has been compared to the data at transmitter and no mistake happened.
@@ -497,6 +535,7 @@ Note that it is also possible to check the system availability from the raw bit 
 \section{Improvement}
 Though the data can be transmitted to the receiver PC. But the communication distance is too small. Increasing the distance between antennas will cause a drastic drop of the received wave amplitude.
 This can be improved by increasing the size of antenna or raise the power up at transmitter. 
+
 
 \begin{thebibliography}{99}
 
