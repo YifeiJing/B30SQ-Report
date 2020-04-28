@@ -206,8 +206,27 @@ and
 \section{Design and performance test}
 The design of the patch antenna is under the aid of \emph{Keysight ADS}. The parameters have been well tunned during the process of simulation in the laboratory. Thus, it was expected the produced antenna would behave the same as what had been shown on the simulation results.
 This section shows the produced antennas and their characteristics.
-
+\hyperref[fig:AntennaS11]{Figure \ref*{fig:AntennaS11}} gives the magnitude and phase of reflection coefficient at 2.45GHz. \hyperref[fig:3D]{Figure \ref*{fig:3D}} shows the 3D structure of the patch antenna.
+It also gives the radiation pattern. \hyperref[fig:EMfield]{Figure \ref*{fig:EMfield}} shows the electirc field and magnetic field distribution in the antenna.
 \hyperref[fig:antenna_photo]{Figure \ref*{fig:antenna_photo}} shows the antenna finally made. The two antennas are both based on the same project schematic, thus the performance should be the same.
+
+\begin{figure}[H]
+    \centerline{\includegraphics[scale=0.5]{Antenna_Simulation.PNG}}
+    \caption{Magnitude of S11 and Phase of S11}
+    \label{fig:AntennaS11}
+\end{figure}
+
+\begin{figure}[H]
+    \centerline{\includegraphics[scale=0.3]{FarFieldSimulation.png}}
+    \caption{3D structure of antenna}
+    \label{fig:3D}
+\end{figure}
+
+\begin{figure}[H]
+    \centerline{\includegraphics[scale=0.3]{EMSimulation.png}}
+    \caption{EM Field simulation}
+    \label{fig:EMfield}
+\end{figure}
 
 \begin{figure}[ht]
     \centerline{\includegraphics[scale=0.8]{antenna_photo}}
@@ -237,20 +256,20 @@ This section mainly describe the design of a low noise amplifier based on \textb
 The reason to choose this device is that:
 \begin{itemize}
     \item[1.] It is available to buy: from \emph{farnell} or \emph{digikey}.
-    \item[2.] It has a model than can be used in \emph{ADS}.
+    \item[2.] It has a model that can be used in \emph{ADS}.
 \end{itemize}
 
 % To fill
-The  DC-IV characterization schematic in ADS and results.
+% The  DC-IV characterization schematic in ADS and results.
 
-Show S parameters simulations over a wide frequency range for a given bias point, include
-ADS schematic.
+% Show S parameters simulations over a wide frequency range for a given bias point, include
+% ADS schematic.
 
-Show stability analysis before and after stabilization.
+% Show stability analysis before and after stabilization.
 
 However, owing to some reasons, this device was no longer available at the time the laboratory was holding.
 The new solution is to use a the Bipolar - RF transistor \textbf{BFU610}.\\
-Here the simulation of \textbf{ATF-58143} will be given. The procedures of simulation will is given below.
+Here the simulation of \textbf{ATF-58143} will be given. The procedures of simulation is given below.
 \begin{itemize}
     \item Basic circuit construction of low noise amplifier
     \item Source-Load matching
@@ -276,19 +295,58 @@ space should be given for them. Using gaps to simulate the spaces for those comp
     \caption{Circuit with T-Junctions and gaps}
     \label{junctions}
 \end{figure}
+
 \begin{figure}
-    \centerline{\includegraphics{Junctions_S21.PNG}}
+    \centerline{\includegraphics[scale=0.4]{DCIV.PNG}}
+    \caption{Characteristic curve of the \textbf{ATF-58143}}
+    \label{fig:DCIV}
+\end{figure}
+
+\begin{figure}
+    \centerline{\includegraphics{S21.PNG}}
     \caption{$S_{21}$ value}
     \label{S21}
 \end{figure}
-\hyperref[junctions]{Figure \ref*{junctions}} shows the circuit after adding T-junctions and gaps. \hyperref[S21]{Figure \ref*{S21}} shows the $S_{21}$ of this circuit. Output power test needs 
-replace TermG with AC source and observe the $P_{in}$, $P_{out}$ relationship.
+
 \begin{figure}
+    \centerline{\includegraphics{MaxGain.PNG}}
+    \caption{MaxGain}
+    \label{fig:MaxGain}
+\end{figure}
+
+\begin{figure}
+    \centerline{\includegraphics{StableFactor.PNG}}
+    \caption{StableFactor}
+    \label{fig:StableFactor}
+\end{figure}
+
+\begin{figure}
+    \centerline{\includegraphics{S11.PNG}}
+    \caption{S11}
+    \label{fig:S11}
+\end{figure}
+
+\begin{figure}
+    \centerline{\includegraphics{S12.PNG}}
+    \caption{S12}
+\end{figure}
+
+\begin{figure}
+    \centerline{\includegraphics{S22.PNG}}
+    \caption{S22}
+    \label{fig:S22}
+\end{figure}
+\hyperref[junctions]{Figure \ref*{junctions}} shows the circuit after adding T-junctions and gaps. \hyperref[fig:DCIV]{Figure \ref*{fig:DCIV}} shows the characteristic curve of the \textbf{ATF-58143}.
+\hyperref[S21]{Figure \ref*{S21}} shows the $S_{21}$ of this circuit. \hyperref[fig:MaxGain]{Figure \ref*{fig:MaxGain}} gives the maximum S21 value in theory.
+Actual value is 3dB less than the theory value. \hyperref[fig:StableFactor]{Figure \ref*{fig:StableFactor}} gives the stable factor. Since the factor is bigger than one, means that the amplifier is stable. Other S parameters are given from \hyperref[fig:S11]{Figure \ref*{fig:S11}}
+to \hyperref[fig:S22]{Figure \ref*{fig:S22}}. 
+ Output power test needs to replace TermG with AC source and observe the $P_{in}$, $P_{out}$ relationship.
+\begin{figure}[H]
     \centerline{\includegraphics[]{P_inP_out.PNG}}
     \caption{$P_{in}$-$P_{out}$ relationship}
     \label{inout}
 \end{figure}
-\begin{figure}
+\begin{figure}[H]
     \centerline{\includegraphics{P_inP_outSlope.PNG}}
     \caption{Linear region}
     \label{linearregion}
@@ -356,6 +414,7 @@ The device used is \textbf{ZX95-3000W+}, which is a wide band voltage controlled
 \end{figure}
 
 \chapter{Entire system testing}
+\section{Components of the system}
 As it is depicted in \hyperref[fig:system_structure]{Figure \ref*{fig:system_structure}}, the signal start from the PC at the transmitter, amplified by the op amp, then modulated to be envelopes and sent by the antenna. This is the transmitter part of the wireless communication system. The microwave is received by the antenna at the receiver part, and it is amplified by the op amp to be detectable enough, filtered and rectified by the rectifier, finally received by the PC at the receiver part.
 
 \begin{figure}[ht]
@@ -435,8 +494,9 @@ Note that it is also possible to check the system availability from the raw bit 
 \hyperref[fig:DCT]{Figure \ref*{fig:DCT}} to \hyperref[fig:DCR]{Figure \ref*{fig:DCR}} are the components in the wireless communication system. DC power supplies, OPAMPS, oscilators, antennas and low noise amplifier etc. 
 \hyperref[fig:DataR]{Figure \ref*{fig:DataR}} shows the received data. the data has been compared to the data at transmitter and no mistake happened.
 % \section{Envelope Detector}
-
-
+\section{Improvement}
+Though the data can be transmitted to the receiver PC. But the communication distance is too small. Increasing the distance between antennas will cause a drastic drop of the received wave amplitude.
+This can be improved by increasing the size of antenna or raise the power up at transmitter. 
 
 \begin{thebibliography}{99}
 
