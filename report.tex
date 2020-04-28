@@ -298,7 +298,8 @@ linear amplification region of the low noise amplifier. Once beyond the linear r
 \chapter{Low Pass Filter}
 In the receiver side. High frequency carrier needs to be filtered out. A low pass filter is applied at the receiver side. The circuit of low pass filter is given in \hyperref[fig:typical_detector_circuit]{Figure \ref*{fig:typical_detector_circuit}}.
 \hyperref[LPFSimulationResult]{Figure \ref*{LPFSimulationResult}} shows the simulation results of the low pass filter. \hyperref[RealLPF]{Figure \ref*{RealLPF}} is the real low pass filter used in this wireless system. The difference between real
-circuit and designed circuit is the real circuit does not contain capacitor.
+circuit and designed circuit is the real circuit does not contain capacitor. From \hyperref[fig:LPF2]{Figure \ref*{fig:LPF2}} to \hyperref[fig:LPF1K]{Figure \ref*{fig:LPF1K}} is the test result with 2Hz signal, 5Hz signal and 1KHz signal. Result is shown
+on the oscilliscope.
 % \begin{figure}[H]
 %     \centerline{\includegraphics[scale=0.5]{LPF_circuit.PNG}}
 %     \caption{Low pass filter circuit}
@@ -317,11 +318,28 @@ circuit and designed circuit is the real circuit does not contain capacitor.
 \end{figure}
 
 \begin{figure}[H]
-    \centerline{\includegraphics{rectifier.png}}
+    \centerline{\includegraphics[scale=0.5]{rectifier.png}}
     \caption{Low pass filter(real circuit)}
     \label{RealLPF}
 \end{figure}
 
+\begin{figure}[H]
+    \centerline{\includegraphics[scale=0.1]{LPFTest2Hz.PNG}}
+    \caption{LPF test with 2Hz basband signal}
+    \label{fig:LPF2}
+\end{figure}
+
+\begin{figure}[H]
+    \centerline{\includegraphics[scale=0.1]{LPFTest5Hz.PNG}}
+    \caption{LPF test with 5Hz basband signal}
+    \label{fig:LPF5}
+\end{figure}
+
+\begin{figure}[H]
+    \centerline{\includegraphics[scale=0.1]{LPFTest1KHz.PNG}}
+    \caption{LPF test with 1KHz basband signal}
+    \label{fig:LPF1K}
+\end{figure}
 \chapter{Transmitter's modulator}
 % Describe how the output signal from t
 The USB FTDI Chip is modulating the provided Voltage
@@ -373,8 +391,49 @@ Note that it is also possible to check the system availability from the raw bit 
     \caption{Waveforms at the transmitter PC and the receiver PC}
     \label{fig:raw_bit_waveform}
 \end{figure}
-
+\begin{figure}
+    \centerline{\includegraphics[scale=0.1]{DC_PowerSupplyReceiver.PNG}}
+    \caption{DC power supply at transmitter side}
+    \label{fig:DCT}
+\end{figure}
+\begin{figure}
+    \centerline{\includegraphics[scale=0.1]{OPAMP_Transmitter.PNG}}
+    \caption{OPAMP at transmitter side}
+    \label{fig:OPAMPT}
+\end{figure}
+\begin{figure}
+    \centerline{\includegraphics[scale=0.2]{Oscillator.PNG}}
+    \caption{Oscillator}
+    \label{fig:Oscilaltor}
+\end{figure}
+\begin{figure}
+    \centerline{\includegraphics[scale=0.1]{Antennas.PNG}}
+    \caption{Transmitting antenna and receiving antenna}
+    \label{fig:Antennas}
+\end{figure}
+\begin{figure}
+    \centerline{\includegraphics[scale=0.2]{LNA.PNG}}
+    \caption{Low noise amplifier}
+    \label{fig:LNA}
+\end{figure}
+\begin{figure}
+    \centerline{\includegraphics[scale=0.1]{OPAMPAtReceiver.PNG}}
+    \caption{OPAMP at receiver side}
+    \label{fig:OPAMPR}
+\end{figure}
+\begin{figure}
+    \centerline{\includegraphics[scale=0.1]{DC_PowerSupplyReceiver.PNG}}
+    \caption{DC power supply at receiver side}
+    \label{fig:DCR}
+\end{figure}
+\begin{figure}
+    \centerline{\includegraphics[scale=0.1]{ReceiverPC.png}}
+    \caption{Received data}
+    \label{fig:DataR}
+\end{figure}
 \hyperref[fig:raw_bit_waveform]{Figure \ref*{fig:raw_bit_waveform}} shows the successful example acquired in the laboratory, where the upper one is the signal at the transmitter PC, and the lower one is the signal at the receiver PC.
+\hyperref[fig:DCT]{Figure \ref*{fig:DCT}} to \hyperref[fig:DCR]{Figure \ref*{fig:DCR}} are the components in the wireless communication system. DC power supplies, OPAMPS, oscilators, antennas and low noise amplifier etc. 
+\hyperref[fig:DataR]{Figure \ref*{fig:DataR}} shows the received data. the data has been compared to the data at transmitter and no mistake happened.
 % \section{Envelope Detector}
 
 
