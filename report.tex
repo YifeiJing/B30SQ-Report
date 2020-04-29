@@ -466,44 +466,11 @@ Note that it is also possible to check the system availability from the raw bit 
     \caption{Waveforms at the transmitter PC and the receiver PC}
     \label{fig:raw_bit_waveform}
 \end{figure}
-% \begin{figure}
-%     \centerline{\includegraphics[scale=0.1]{DC_PowerSupplyReceiver.PNG}}
-%     \caption{DC power supply at transmitter side}
-%     \label{fig:DCT}
-% \end{figure}
-% \begin{figure}
-%     \centerline{\includegraphics[scale=0.1]{OPAMP_Transmitter.PNG}}
-%     \caption{OPAMP at transmitter side}
-%     \label{fig:OPAMPT}
-% \end{figure}
-% \begin{figure}
-%     \centerline{\includegraphics[scale=0.2]{Oscillator.PNG}}
-%     \caption{Oscillator}
-%     \label{fig:Oscilaltor}
-% \end{figure}
-% \begin{figure}
-%     \centerline{\includegraphics[scale=0.1]{Antennas.PNG}}
-%     \caption{Transmitting antenna and receiving antenna}
-%     \label{fig:Antennas}
-% \end{figure}
-% \begin{figure}
-%     \centerline{\includegraphics[scale=0.2]{LNA.PNG}}
-%     \caption{Low noise amplifier}
-%     \label{fig:LNA}
-% \end{figure}
-% \begin{figure}
-%     \centerline{\includegraphics[scale=0.1]{OPAMPAtReceiver.PNG}}
-%     \caption{OPAMP at receiver side}
-%     \label{fig:OPAMPR}
-% \end{figure}
-% \begin{figure}
-%     \centerline{\includegraphics[scale=0.1]{DC_PowerSupplyReceiver.PNG}}
-%     \caption{DC power supply at receiver side}
-%     \label{fig:DCR}
-% \end{figure}
+
+
 
 \hyperref[fig:raw_bit_waveform]{Figure \ref*{fig:raw_bit_waveform}} shows the successful example acquired in the laboratory, where the upper one is the signal at the transmitter PC, and the lower one is the signal at the receiver PC.
-% \hyperref[fig:DCT]{Figure \ref*{fig:DCT}} to \hyperref[fig:DCR]{Figure \ref*{fig:DCR}} are the components in the wireless communication system. DC power supplies, OPAMPS, oscilators, antennas and low noise amplifier etc. 
+\hyperref[fig:antennas]{Figure \ref*{fig:antennas}} to \hyperref[fig:LNA]{Figure \ref*{fig:LNA}} are the components in the wireless communication system. DC power supplies, OPAMPS, oscilator, antennas and low noise amplifier. 
 \hyperref[fig:DataR]{Figure \ref*{fig:DataR}} shows the received data. the data has been compared to the data at transmitter and no mistake happened.
 % \section{Envelope Detector}
 
@@ -511,6 +478,17 @@ Note that it is also possible to check the system availability from the raw bit 
     \centerline{\includegraphics[scale=0.1]{Antennas}}
     \caption{Photo of antennas}
     \label{fig:antennas}
+\end{figure}
+
+\begin{figure}[htp]
+    \begin{center}
+        \subfigure[DC power supply at transmitter]
+        {\label{fig:DCT}\includegraphics[scale=0.05]{DCPowerSupplyAtTransmitter.PNG}}
+        \subfigure[DC power supply at receiver]
+        {\label{fig:DCR}\includegraphics[scale=0.05]{DC_PowerSupplyReceiver.PNG}}
+    \end{center}
+    \caption{DC power supplies}
+    \label{fig:DC}
 \end{figure}
 
 \begin{figure}[htp]
@@ -524,7 +502,19 @@ Note that it is also possible to check the system availability from the raw bit 
     \label{fig:opamps}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[ht]
+    \centerline{\includegraphics[scale=0.2]{Oscillator.PNG}}
+    \caption{Oscillator}
+    \label{fig:Oscilaltor}
+\end{figure}
+
+\begin{figure}[ht]
+    \centerline{\includegraphics[scale=0.2]{LNA.PNG}}
+    \caption{Low noise amplifier}
+    \label{fig:LNA}
+\end{figure}
+
+\begin{figure}[ht]
     \centerline{\includegraphics[scale=0.1]{ReceiverPC.png}}
     \caption{Received data}
     \label{fig:DataR}
